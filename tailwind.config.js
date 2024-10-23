@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
+        background: "rgb(13, 17, 23)",  // Color de Github
         foreground: "var(--foreground)",
       },
     },
