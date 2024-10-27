@@ -1,5 +1,6 @@
 // components/Header.js
 import Link from 'next/link';
+import styles from './Header.module.css';
 
 export default function Header() {
   return (
@@ -7,13 +8,17 @@ export default function Header() {
       <nav style={navStyle}>
         <ul style={ulStyle}>
           <li style={liStyle}>
-            <Link href="/">Home</Link>
+            <Link href="/" className={styles.link}>Home</Link>
           </li>
           <li style={liStyle}>
-            <Link href="/about">About</Link>
+            <Link href="/about" className={styles.link}>About</Link>
           </li>
           <li style={liStyle}>
-            <Link href="/contact">Contact</Link>
+            <Link href="/contact" className={styles.link}>Contact</Link>
+          </li>
+          <li style={{liStyle, display: 'flex', alignItems: 'center'}}>
+            <span className={styles.separator}>|</span>
+            <Link href="/login" className={styles.link}>Login</Link>
           </li>
         </ul>
       </nav>

@@ -4,7 +4,6 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-white relative">
       {}
-      <Header />
 
       {/* Titulo */}
       <div className="p-8 sm:p-20">

@@ -1,0 +1,14 @@
+.link {
+    color: #8f8f8f;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .link:hover {
+    color: #ffffff; /* Hover color */
+  }
+  
+  .separator {
+    color: #6f6f6f;
+    margin-right: 8px;
+  }
