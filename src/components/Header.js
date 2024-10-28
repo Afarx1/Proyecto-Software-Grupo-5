@@ -16,7 +16,7 @@ export default function Header() {
           <li style={liStyle}>
             <Link href="/contact" className={styles.link}>Contact</Link>
           </li>
-          <li style={{liStyle, display: 'flex', alignItems: 'center'}}>
+          <li style={{ ...liStyle, display: 'flex', alignItems: 'center' }}>
             <span className={styles.separator}>|</span>
             <Link href="/login" className={styles.link}>Login</Link>
           </li>
@@ -26,7 +26,7 @@ export default function Header() {
   );
 }
 
-// Estilos básicos en línea
+// Estructura basica de las paginas de tal forma que puedan funcionar
 const headerStyle = {
   backgroundColor: '#333',
   color: '#fff',
@@ -49,3 +49,4 @@ const ulStyle = {
 const liStyle = {
   margin: '0 10px',
 };
+
