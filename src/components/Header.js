@@ -17,9 +17,11 @@ export default function Header() {
             <Link href="/contact" className={styles.link}>Contact</Link>
           </li>
           <li style={{ ...liStyle, display: 'flex', alignItems: 'center' }}>
+            <Link href="register" className={styles.link}>Register</Link>
             <span className={styles.separator}>|</span>
             <Link href="/login" className={styles.link}>Login</Link>
           </li>
+           
         </ul>
       </nav>
     </header>
