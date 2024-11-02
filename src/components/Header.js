@@ -2,10 +2,12 @@
 "use client";
 import Link from 'next/link';
 import styles from './Header.module.css';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { LanguageContext } from '@/context/LanguageContext';
 
 export default function Header() {
   const [dropdownVisible, setDropdownVisible] = useState(false);
+  const { language, changeLanguage } = useContext(LanguageContext); // Access global language state
 
   const toggleDropdown = () => {
     setDropdownVisible(!dropdownVisible);
@@ -16,41 +18,38 @@ export default function Header() {
       <nav style={navStyle}>
         <ul style={ulStyle}>
           <li style={liStyle}>
-            <Link href="/" className={styles.link}>Home</Link>
+            <Link href="/" className={styles.link}>{language === "en" ? "Home" : "Inicio"}</Link>
           </li>
           <li style={liStyle}>
-            <Link href="/about" className={styles.link}>About</Link>
+            <Link href="/about" className={styles.link}>{language === "en" ? "About" : "Acerca de"}</Link>
           </li>
           <li style={liStyle}>
-            <Link href="/contact" className={styles.link}>Contact</Link>
+            <Link href="/contact" className={styles.link}>{language === "en" ? "Contact" : "Contacto"}</Link>
           </li>
           <li style={{ ...liStyle, display: 'flex', alignItems: 'center' }}>
-            <Link href="register" className={styles.link}>Register</Link>
+            <Link href="register" className={styles.link}>{language === "en" ? "Register" : "Registrarse"}</Link>
             <span className={styles.separator}>|</span>
-            <Link href="/login" className={styles.link}>Login</Link>
+            <Link href="/login" className={styles.link}>{language === "en" ? "Login" : "Iniciar sesión"}</Link>
           </li>
           <li style={{ ...liStyle, position: 'relative', cursor: 'pointer' }} onClick={toggleDropdown}>
-            <span className={styles.link}>Language</span>
+            <span className={styles.link}>{language === "en" ? "Language" : "Idioma"}</span>
             {dropdownVisible && (
               <ul style={dropdownMenuStyle}>
-                <li style={dropdownItemStyle}>
-                  <Link href="en" className={styles.link}>English</Link>
+                <li style={dropdownItemStyle} onClick={() => changeLanguage("en")}>
+                  English
                 </li>
-                <li style={dropdownItemStyle}>
-                  <Link href="es" className={styles.link}>Español</Link>
-                </li>
-                <li style={dropdownItemStyle}>
-                  <Link href="de" className={styles.link}>Deustch</Link>
+                <li style={dropdownItemStyle} onClick={() => changeLanguage("es")}>
+                  Español
                 </li>
               </ul>
             )}
           </li>
-           
         </ul>
       </nav>
     </header>
   );
 }
+
 
 // Estructura basica de las paginas de tal forma que puedan funcionar
 const headerStyle = {

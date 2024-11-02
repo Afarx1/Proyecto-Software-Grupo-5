@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import './globals.css';
 import Header from '@/components/Header';
+import { LanguageProvider } from '@/context/LanguageContext'; 
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -23,13 +24,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-white min-h-screen flex flex-col`}>
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <footer className="text-sm p-4 text-center bg-background">
-          Grupo-5. Todos los derechos reservados.
-        </footer>
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-white min-h-screen flex flex-col`}
+      >
+        <LanguageProvider> {/*LanguageProvider */}
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <footer className="text-sm p-4 text-center bg-background">
+            Grupo-5. Todos los derechos reservados.
+          </footer>
+        </LanguageProvider>
       </body>
     </html>
   );
 }
+

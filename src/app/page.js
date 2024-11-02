@@ -1,21 +1,34 @@
+// src/app/page.js
+"use client"; // Crucial. Necesario para usar useContext
 import Header from "../components/Header";
+import React, { useContext } from 'react';
+import { LanguageContext } from '@/context/LanguageContext';
+
+const translations = {
+  en: {
+    title: "Generic Store xd",
+    description: "Welcome to our fictional store!",
+  },
+  es: {
+    title: "Tienda generica xd",
+    description: "¡Bienvenido a nuestra tienda ficticia!",
+  },
+};
 
 export default function Home() {
+  const { language } = useContext(LanguageContext); // Accede al lenguaje seleccionado usando useContext
+
   return (
     <div className="min-h-screen bg-background text-white relative">
-      {}
-
-      {/* Titulo */}
+      {/* Title */}
       <div className="p-8 sm:p-20">
         <header className="text-center text-4xl font-bold mb-8">
-          Tienda generica xd
+          {translations[language].title} {/* Titulo basado en lenguaje (placeholder) */}
         </header>
+        <p className="text-center text-lg">
+          {translations[language].description} {/* Descripción basado en lenguaje (placeholder) */}
+        </p>
       </div>
-
-      {/* Footer */}
-      <footer className="absolute bottom-4 left-4 text-sm">
-        Grupo-5. Todos los derechos reservados.
-      </footer>
     </div>
   );
 }
