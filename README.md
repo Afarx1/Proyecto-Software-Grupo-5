@@ -1,11 +1,11 @@
 Grupo - 5
 
 - Sitio web con carrito de compras
-- ○ Clásico carrito de compras, manejo de inventario básico (solo admin con correo y
+- Clásico carrito de compras, manejo de inventario básico (solo admin con correo y
 contraseña)
 
-Nio03 - Nicolas
+Logrado: Header, multilenguaje, LocalStorage, Responsive Design, Registro de nuevos usuarios (base de datos, creación de API y utlización de variables de entorno .env)
 
-
-vgarcuai - Vicente
-
+Nio03 -> Nicolas
+vgarcuai -> Vicente
+Afarx -> Enzo
