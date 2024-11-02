@@ -1,9 +1,11 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { useRouter } from 'next/navigation'
+import { LanguageContext } from '@/context/LanguageContext';
 
 export default function Register() {
+  const { language } = useContext(LanguageContext)
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -14,7 +16,7 @@ export default function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     if (password !== confirmPassword) {
-      setError('Passwords do not match')
+      setError(language === 'en' ? 'Passwords do not match' : 'Las contraseñas no coinciden')
       return
     }
     try {
@@ -30,17 +32,19 @@ export default function Register() {
         setError(data.message)
       }
     } catch (error) {
-      setError('An error occurred. Please try again.')
+      setError(language === 'en' ? 'An error occurred. Please try again.' : 'Ocurrió un error. Inténtalo de nuevo.')
     }
   }
 
   return (
     <div className="max-w-md mx-auto mt-10">
-      <h1 className="text-2xl font-bold mb-5">Register</h1>
+      <h1 className="text-2xl font-bold mb-5">
+        {language === 'en' ? 'Register' : 'Registrarse'}
+      </h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="name" className="block mb-1">
-            Name
+            {language === 'en' ? 'Name' : 'Nombre'}
           </label>
           <input
             type="text"
@@ -53,7 +57,7 @@ export default function Register() {
         </div>
         <div>
           <label htmlFor="email" className="block mb-1">
-            Email
+            {language === 'en' ? 'Email' : 'Correo Electrónico'}
           </label>
           <input
             type="email"
@@ -66,7 +70,7 @@ export default function Register() {
         </div>
         <div>
           <label htmlFor="password" className="block mb-1">
-            Password
+            {language === 'en' ? 'Password' : 'Contraseña'}
           </label>
           <input
             type="password"
@@ -79,7 +83,7 @@ export default function Register() {
         </div>
         <div>
           <label htmlFor="confirmPassword" className="block mb-1">
-            Confirm Password
+            {language === 'en' ? 'Confirm Password' : 'Confirmar Contraseña'}
           </label>
           <input
             type="password"
@@ -92,7 +96,7 @@ export default function Register() {
         </div>
         {error && <p className="text-red-500">{error}</p>}
         <button type="submit" className="w-full bg-primary text-primary-foreground py-2 rounded">
-          Register
+          {language === 'en' ? 'Register' : 'Registrarse'}
         </button>
       </form>
     </div>
