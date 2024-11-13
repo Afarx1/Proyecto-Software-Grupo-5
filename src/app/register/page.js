@@ -4,6 +4,45 @@ import { useState, useContext } from 'react'
 import { useRouter } from 'next/navigation'
 import { LanguageContext } from '@/context/LanguageContext';
 
+const translations = {
+  en: {
+    mismatch: "Passwords do not match",
+    error: "An error occurred. Please try again.",
+    register: "Register",
+    name: "Name",
+    email: "Email",
+    password: "Password",
+    confirm: "Confirm password",
+  },
+  es: {
+    mismatch: "Las contraseñas no coinciden",
+    error: "Ocurrió un error. Inténtalo de nuevo.",
+    register: "Registrarse",
+    name: "Nombre",
+    email: "Correo Electrónico",
+    password: "Contraseña",
+    confirm: "Confirmar contraseña",
+  },
+  de: {
+    mismatch: "Passwörter stimmen nicht überein",
+    error: "Es ist ein Fehler aufgetreten. Bitte versuche es erneut.",
+    register: "Registrieren",
+    name: "Name",
+    email: "E-Mail",
+    password: "Passwort",
+    confirm: "Passwort bestätigen",
+  },
+  fr: {
+    mismatch: "Les mots de passe ne correspondent pas",
+    error: "Une erreur est survenue. Veuillez réessayer.",
+    register: "S'inscrire",
+    name: "Nom",
+    email: "E-mail",
+    password: "Mot de passe",
+    confirm: "Confirmer le mot de passe",
+  },
+};
+
 export default function Register() {
   const { language } = useContext(LanguageContext)
   const [name, setName] = useState('')
@@ -15,11 +54,11 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (password !== confirmPassword) {
+    /*if (password !== confirmPassword) {
       setError(language === 'en' ? 'Passwords do not match' : 'Las contraseñas no coinciden')
       return
     }
-    try {
+    try {*/
       const res = await fetch('/api/auth', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -31,20 +70,20 @@ export default function Register() {
         const data = await res.json()
         setError(data.message)
       }
-    } catch (error) {
+    /*} catch (error) {
       setError(language === 'en' ? 'An error occurred. Please try again.' : 'Ocurrió un error. Inténtalo de nuevo.')
-    }
+    }*/
   }
 
   return (
     <div className="max-w-md mx-auto mt-10">
       <h1 className="text-2xl font-bold mb-5">
-        {language === 'en' ? 'Register' : 'Registrarse'}
+        {translations[language].register}
       </h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="name" className="block mb-1">
-            {language === 'en' ? 'Name' : 'Nombre'}
+            {translations[language].name}
           </label>
           <input
             type="text"
@@ -57,7 +96,7 @@ export default function Register() {
         </div>
         <div>
           <label htmlFor="email" className="block mb-1">
-            {language === 'en' ? 'Email' : 'Correo Electrónico'}
+            {translations[language].email}
           </label>
           <input
             type="email"
@@ -70,7 +109,7 @@ export default function Register() {
         </div>
         <div>
           <label htmlFor="password" className="block mb-1">
-            {language === 'en' ? 'Password' : 'Contraseña'}
+            {translations[language].password}
           </label>
           <input
             type="password"
@@ -83,7 +122,7 @@ export default function Register() {
         </div>
         <div>
           <label htmlFor="confirmPassword" className="block mb-1">
-            {language === 'en' ? 'Confirm Password' : 'Confirmar Contraseña'}
+            {translations[language].confirm}
           </label>
           <input
             type="password"
@@ -96,7 +135,7 @@ export default function Register() {
         </div>
         {error && <p className="text-red-500">{error}</p>}
         <button type="submit" className="w-full bg-primary text-primary-foreground py-2 rounded">
-          {language === 'en' ? 'Register' : 'Registrarse'}
+          {translations[language].register}
         </button>
       </form>
     </div>

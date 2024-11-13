@@ -13,6 +13,14 @@ const translations = {
     title: "Tienda generica xd",
     description: "¡Bienvenido a nuestra tienda ficticia!",
   },
+  de: {
+    title: "Generischer Laden xd",
+    description: "Willkommen in unserem fiktiven Laden!",
+  },
+  fr: {
+    title: "Magasin générique xd",
+    description: "Bienvenue dans notre magasin fictif !",
+  },
 };
 
 export default function Home() {
