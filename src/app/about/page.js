@@ -35,10 +35,10 @@ export default function About() {
       <h2 className="text-center text-3xl font-bold mb-4">
         {translations[language].title}
       </h2>
-      <p className="text-center text-lg mb-4">
+      <p className="text-left text-lg mb-4">
         {translations[language].description}
       </p>
-      <p className="text-center text-lg mb-8 whitespace-pre-line">
+      <p className="text-left text-lg mb-8 whitespace-pre-line">
         {translations[language].extendedDescription}
       </p>
       <div className="flex justify-center">
