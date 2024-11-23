@@ -4,6 +4,7 @@ import Link from 'next/link';
 import styles from './Header.module.css';
 import { useContext, useState } from 'react';
 import { LanguageContext } from '@/context/LanguageContext';
+import { useCart } from '@/context/CartContext'
 
 const translations = {
   en: {
