@@ -2,14 +2,29 @@
 
 import React from 'react';
 import styles from './ProductCard.module.css';
+import { LanguageContext } from '@/context/LanguageContext';
+import { useContext } from 'react';
 import { useCart } from '@/context/CartContext'
-import { useTranslation } from 'next-i18next'  
+
+const translations = {
+  en: {
+    add: "Add to Cart",
+  },
+  es: {
+    add: "Agregar al carrito",
+  },
+  de: {
+    add: "In den Warenkorb",
+  },
+  fr: {
+    add: "Ajouter au panier",
+  },
+};
 
 const ProductCard = ({ id, imageUrl, name, price, onAddToCart }) => {
-  
 
   const { addToCart } = useCart()
-  const { t } = useTranslation('common')
+  const { language, changeLanguage } = useContext(LanguageContext); // Access global language state
 
   const handleAddToCart = () => {
     addToCart({ id, name, price, imageUrl })
@@ -30,7 +45,7 @@ const ProductCard = ({ id, imageUrl, name, price, onAddToCart }) => {
         <button className={styles.addToCartButton}
           onClick={Tocart}
         >
-         Comprar 
+        {translations[language].add}
         </button>
     </div>
   )

@@ -47,7 +47,7 @@ export default function Home() {
         </p>
       </div>
 
-      <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', padding: '0 130px', margin: '0 auto'}}>
+      <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', padding: '0 130px', margin: '0 auto'}}>
       <ProductCard
         imageUrl={sampleProduct.imageUrl}
         name={sampleProduct.name}

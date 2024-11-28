@@ -2,7 +2,7 @@
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 32px; /* Increase padding for more space inside the card */
-  max-width: 300px; /* Make the card wider */
+  width: 280px; /* Make the card wider */
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Larger shadow for a bigger card */
   transition: transform 0.2s;
@@ -38,6 +38,8 @@
   padding: 12px 24px; /* Larger button padding */
   cursor: pointer;
   font-size: 1.2em; /* Increase button font size */
+  width: 200px;
+
 }
 
 .addToCartButton:hover {
