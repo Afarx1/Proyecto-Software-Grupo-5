@@ -6,7 +6,7 @@ import ProductCard from '../components/ProductCard';
 
 const translations = {
   en: {
-    title: "Generic Store xd",
+    title: "Generic Store",
     description: "Welcome to our fictional store!",
     cartTitle: "Your Cart",
     viewCart: "View Cart",
@@ -18,7 +18,7 @@ const translations = {
     paidMessage: "You've paid a total of",
   },
   es: {
-    title: "Tienda generica xd",
+    title: "Tienda generica",
     description: "¡Bienvenido a nuestra tienda ficticia!",
     cartTitle: "Tu Carrito",
     viewCart: "Ver Carrito",
@@ -30,7 +30,7 @@ const translations = {
     paidMessage: "Has pagado un total de",
   },
   de: {
-    title: "Generischer Laden xd",
+    title: "Generischer Laden",
     description: "Willkommen in unserem fiktiven Laden!",
     cartTitle: "Ihr Warenkorb",
     viewCart: "Warenkorb anzeigen",
@@ -42,7 +42,7 @@ const translations = {
     paidMessage: "Sie haben einen Gesamtbetrag von",
   },
   fr: {
-    title: "Magasin générique xd",
+    title: "Magasin générique",
     description: "Bienvenue dans notre magasin fictif !",
     cartTitle: "Votre Panier",
     viewCart: "Voir le Panier",
