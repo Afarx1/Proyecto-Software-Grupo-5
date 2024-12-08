@@ -90,7 +90,7 @@ export default function Home() {
     <div className="min-h-screen bg-background text-white relative">
       {/* Title */}
       <div className="p-8 sm:p-20">
-        <header className="text-center text-4xl font-bold mb-8">
+        <header className="text-center text-6xl font-bold mb-8">
           {content.title}
         </header>
         <p className="text-center text-lg">{content.description}</p>
@@ -110,7 +110,7 @@ export default function Home() {
           <ProductCard
             key={product.id}
             imageUrl={product.imageUrl}
-            name={product.name}
+            name={product.name[language]}
             price={product.price}
             onAddToCart={() => handleAddToCart(product)}
           />
