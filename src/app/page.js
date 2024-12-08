@@ -1,9 +1,8 @@
 // src/app/page.js
 "use client"; // Crucial. Necesario para usar useContext
-import Header from "../components/Header";
 import React, { useContext } from 'react';
 import { LanguageContext } from '@/context/LanguageContext';
-
+import products from '../data/products';
 import ProductCard from '../components/ProductCard';
 
 const translations = {
@@ -47,57 +46,25 @@ export default function Home() {
         </p>
       </div>
 
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap', padding: '0 130px', margin: '0 auto'}}>
-      <ProductCard
-        imageUrl={sampleProduct.imageUrl}
-        name={sampleProduct.name}
-        price={sampleProduct.price}
-        onAddToCart={() => handleAddToCart(sampleProduct.name)}
-      />
-      <ProductCard
-        imageUrl={sampleProduct.imageUrl}
-        name={sampleProduct.name}
-        price={sampleProduct.price}
-        onAddToCart={() => handleAddToCart(sampleProduct.name)}
-      />
-      <ProductCard
-        imageUrl={sampleProduct.imageUrl}
-        name={sampleProduct.name}
-        price={sampleProduct.price}
-        onAddToCart={() => handleAddToCart(sampleProduct.name)}
-      />
-      <ProductCard
-        imageUrl={sampleProduct.imageUrl}
-        name={sampleProduct.name}
-        price={sampleProduct.price}
-        onAddToCart={() => handleAddToCart(sampleProduct.name)}
-      />
-      <ProductCard
-        imageUrl={sampleProduct.imageUrl}
-        name={sampleProduct.name}
-        price={sampleProduct.price}
-        onAddToCart={() => handleAddToCart(sampleProduct.name)}
-      />
-      <ProductCard
-        imageUrl={sampleProduct.imageUrl}
-        name={sampleProduct.name}
-        price={sampleProduct.price}
-        onAddToCart={() => handleAddToCart(sampleProduct.name)}
-      />
-      <ProductCard
-        imageUrl={sampleProduct.imageUrl}
-        name={sampleProduct.name}
-        price={sampleProduct.price}
-        onAddToCart={() => handleAddToCart(sampleProduct.name)}
-      />
-      <ProductCard
-        imageUrl={sampleProduct.imageUrl}
-        name={sampleProduct.name}
-        price={sampleProduct.price}
-        onAddToCart={() => handleAddToCart(sampleProduct.name)}
-      />
-      
-      {/* Add more ProductCard components as needed */}
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          gap: '20px',
+          flexWrap: 'wrap',
+          padding: '0 130px',
+          margin: '0 auto',
+        }}
+      >
+        {products.map((product) => (
+          <ProductCard
+            key={product.id}
+            imageUrl={product.imageUrl}
+            name={product.name}
+            price={product.price}
+            onAddToCart={() => handleAddToCart(product.name)}
+          />
+        ))}
       </div>
     </div>
   );
