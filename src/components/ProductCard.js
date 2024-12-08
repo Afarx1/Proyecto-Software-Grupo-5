@@ -1,10 +1,8 @@
-'use client'
+'use client';
 
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './ProductCard.module.css';
 import { LanguageContext } from '@/context/LanguageContext';
-import { useContext } from 'react';
-import { useCart } from '@/context/CartContext'
 
 const translations = {
   en: {
@@ -21,34 +19,22 @@ const translations = {
   },
 };
 
-const ProductCard = ({ id, imageUrl, name, price, onAddToCart }) => {
-
-  const { addToCart } = useCart()
-  const { language, changeLanguage } = useContext(LanguageContext); // Access global language state
-
-  const handleAddToCart = () => {
-    addToCart({ id, name, price, imageUrl })
-    alert(`${productName} added to cart!`)
-  }
-
-  function Tocart(){
-
-    handleAddToCart();
-    onAddToCart();
-  }
+const ProductCard = ({ imageUrl, name, price, onAddToCart }) => {
+  const { language } = useContext(LanguageContext); // esto es para acceder al lenguaje seleccionado
 
   return (
     <div className={styles.productCard}>
       <img src={imageUrl} alt={name} className={styles.productImage} />
       <h3 className={styles.productName}>{name}</h3>
       <p className={styles.productPrice}>${price.toFixed(2)}</p>
-        <button className={styles.addToCartButton}
-          onClick={Tocart}
-        >
-        {translations[language].add}
-        </button>
+      <button
+        className={styles.addToCartButton}
+        onClick={onAddToCart} // prop en home
+      >
+        {translations[language].add} {/* Boton cambia según lenguaje */}
+      </button>
     </div>
-  )
-}
+  );
+};
 
 export default ProductCard;
