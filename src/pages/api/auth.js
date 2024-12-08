@@ -3,16 +3,20 @@ import jwt from 'jsonwebtoken'
 import { connectToDatabase } from '@/utils/db'
 
 export default async function handler(req, res) {
-  // Asegúrate de que solo se acepten solicitudes POST
   if (req.method !== 'POST') {
     return res.status(405).json({ message: `Method ${req.method} Not Allowed` })
   }
 
   try {
     const { db } = await connectToDatabase()
+    const body = req.body
 
-    if (req.body.action === 'register') {
-      const { name, email, password } = req.body
+    if (body.action === 'register') {
+      const { name, email, password, confirmPassword } = body
+
+      if (password !== confirmPassword) {
+        return res.status(400).json({ message: 'Passwords do not match' })
+      }
 
       const existingUser = await db.collection('users').findOne({ email })
       if (existingUser) {
@@ -28,8 +32,8 @@ export default async function handler(req, res) {
       })
 
       return res.status(201).json({ message: 'User created successfully', userId: result.insertedId })
-    } else if (req.body.action === 'login') {
-      const { email, password } = req.body
+    } else if (body.action === 'login') {
+      const { email, password } = body
 
       const user = await db.collection('users').findOne({ email })
       if (!user) {
@@ -52,3 +56,4 @@ export default async function handler(req, res) {
     return res.status(500).json({ message: 'Internal server error' })
   }
 }
+

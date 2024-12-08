@@ -2,7 +2,7 @@
 
 import { useState, useContext } from 'react'
 import { useRouter } from 'next/navigation'
-import { LanguageContext } from '@/context/LanguageContext';
+import { LanguageContext } from '@/context/LanguageContext'
 
 const translations = {
   en: {
@@ -54,15 +54,15 @@ export default function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    /*if (password !== confirmPassword) {
-      setError(language === 'en' ? 'Passwords do not match' : 'Las contraseñas no coinciden')
+    if (password !== confirmPassword) {
+      setError(translations[language].mismatch)
       return
     }
-    try {*/
+    try {
       const res = await fetch('/api/auth', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'register', name, email, password }),
+        body: JSON.stringify({ action: 'register', name, email, password, confirmPassword }),
       })
       if (res.ok) {
         router.push('/login')
@@ -70,9 +70,9 @@ export default function Register() {
         const data = await res.json()
         setError(data.message)
       }
-    /*} catch (error) {
-      setError(language === 'en' ? 'An error occurred. Please try again.' : 'Ocurrió un error. Inténtalo de nuevo.')
-    }*/
+    } catch (error) {
+      setError(translations[language].error)
+    }
   }
 
   return (
@@ -141,3 +141,4 @@ export default function Register() {
     </div>
   )
 }
+
