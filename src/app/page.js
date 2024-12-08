@@ -62,7 +62,7 @@ export default function Home() {
 
   const handleAddToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
-    alert(`${product.name} added to cart!`);
+    alert(`${product.name[language]} added to cart!`);
   };
 
   const handleRemoveFromCart = (index) => {
@@ -137,7 +137,7 @@ export default function Home() {
                   {cart.map((item, index) => (
                     <li key={index} className="flex justify-between border-b py-2">
                       <div>
-                        <span>{item.name}</span>
+                        <span>{item.name[language]}</span>
                         <span className="ml-2">${item.price.toFixed(2)}</span>
                       </div>
                       <button
