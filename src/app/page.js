@@ -16,6 +16,7 @@ const translations = {
     remove: "Remove",
     pay: "Pay",
     paidMessage: "You've paid a total of",
+    addMessage: "added to cart!",
   },
   es: {
     title: "Tienda generica",
@@ -28,6 +29,7 @@ const translations = {
     remove: "Eliminar",
     pay: "Pagar",
     paidMessage: "Has pagado un total de",
+    addMessage: "agregado al carrito!",
   },
   de: {
     title: "Generischer Laden",
@@ -40,6 +42,7 @@ const translations = {
     remove: "Entfernen",
     pay: "Bezahlen",
     paidMessage: "Sie haben einen Gesamtbetrag von",
+    addMessage: "zum Warenkorb hinzugefügt!",
   },
   fr: {
     title: "Magasin générique",
@@ -52,6 +55,7 @@ const translations = {
     remove: "Retirer",
     pay: "Payer",
     paidMessage: "Vous avez payé un total de",
+    addMessage: "ajouté au panier !",
   },
 };
 
@@ -62,7 +66,7 @@ export default function Home() {
 
   const handleAddToCart = (product) => {
     setCart((prevCart) => [...prevCart, product]);
-    alert(`${product.name[language]} added to cart!`);
+    alert(`${product.name[language]} ${translations[language].addMessage}`);
   };
 
   const handleRemoveFromCart = (index) => {

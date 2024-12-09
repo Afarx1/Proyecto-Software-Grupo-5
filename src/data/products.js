@@ -1,14 +1,14 @@
 const products = [
   {
     id: 1,
-    imageUrl: 'https://via.placeholder.com/150',
+    imageUrl: 'https://foodal.com/wp-content/uploads/2021/03/Weeknight-Spaghetti-Bolognese-150x150.jpg',
     name: {
-      en: 'Sample Product',
-      es: 'Producto de muestra',
-      fr: 'Produit d\'exemple',
-      de: 'Beispiellprodukt',
+      en: 'Spaghetti',
+      es: 'Spaghetti',
+      fr: 'Spaghetti',
+      de: 'Spaghetti',
     },
-    price: 29.99,
+    price: 7.99,
   },
   {
     id: 2,
@@ -41,7 +41,29 @@ const products = [
       fr: 'Roche',
       de: 'Stein',
     },
-    price: 9.99,
+    price: 49.99,
+  },
+  {
+    id: 5,
+    imageUrl: 'https://static01.nyt.com/images/2016/04/27/automobiles/autoreviews/driven-hyundai-elantra/driven-hyundai-elantra-square640.jpg',
+    name: {
+      en: 'Hyundai Elantra',
+      es: 'Hyundai Elantra',
+      fr: 'Hyundai Elantra',
+      de: 'Hyundai Elantra',
+    },
+    price: 22000.00,
+  },
+  {
+    id: 6,
+    imageUrl: 'https://dondelanegra.cl/wp-content/uploads/2023/08/pepsi-original-Lata-350cc.jpg',
+    name: {
+      en: 'Pepsi',
+      es: 'Pepsi',
+      fr: 'Pepsi',
+      de: 'Pepsi',
+    },
+    price: 1.99,
   },
 ];
   
