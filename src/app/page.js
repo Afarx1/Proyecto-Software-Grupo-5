@@ -120,6 +120,15 @@ export default function Home() {
           />
         ))}
       </div>
+      
+      {/* Iframe dinámico */}
+      <div className="mt-8 text-center">
+        <iframe
+          src="https://www.chatbase.co/chatbot-iframe/vk0pD90n0PZIh2JrgRy2K"
+          width="100%"
+          style={{ height: "100%", minHeight: "700px" }}
+        ></iframe>
+      </div>
 
       {/* Boton para ver el carro */}
       <button
@@ -175,6 +184,7 @@ export default function Home() {
           </div>
         </>
       )}
+
     </div>
   );
 }
